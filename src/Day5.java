@@ -34,6 +34,7 @@ public class Day5 {
         AtomicLong minLocation = new AtomicLong(Long.MAX_VALUE);
         AtomicLong iterations = new AtomicLong(0);
 
+        //Brrrrrrute forcing:
         mainStream.parallel().forEach(seed -> {
             Long soil = getDestinationFromRules(seed, seedToSoilRules);
             Long fertilizer = getDestinationFromRules(soil, soilToFertilizerRules);
@@ -49,7 +50,7 @@ public class Day5 {
             }
         });
 
-        System.out.println("Local minimum: " + minLocation);
+        System.out.println("Global minimum: " + minLocation);
     }
 
     private static LongStream getStream(String s) {
@@ -88,7 +89,6 @@ public class Day5 {
             rule.sourceRange = sourceRange;
             rule.destRange = destRange;
             rule.rangeLength = rangeLength;
-
             return rule;
         }).toList();
     }
