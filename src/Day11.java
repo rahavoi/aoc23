@@ -3,10 +3,10 @@ import java.nio.file.Paths;
 import java.util.*;
 
 public class Day11 {
+    static int EXPANSION_RATE = 1000000 - 1;
     static List<Integer> rowsWithoutGalaxies = new ArrayList<>();
     static List<Integer> columnsWithoutGalaxies = new ArrayList<>();
 
-    static int expansion_rate = 1000000 - 1;
     public static void main(String[] args) throws Exception {
         List<Point> galaxies = new ArrayList<>();
         List<String> lines = Files.readAllLines(Paths.get("/Users/irahavoi/IdeaProjects/aoc2023/resources/Day11.txt"));
@@ -63,13 +63,13 @@ public class Day11 {
         long lonelyVoidOfEmptyGalaxies = 0;
         for(int i = xFrom; i < xTo; i++){
             if(columnsWithoutGalaxies.contains(i)){
-                lonelyVoidOfEmptyGalaxies += expansion_rate;
+                lonelyVoidOfEmptyGalaxies += EXPANSION_RATE;
             }
         }
 
         for(int i = yFrom; i < yTo; i++){
             if(rowsWithoutGalaxies.contains(i)){
-                lonelyVoidOfEmptyGalaxies += expansion_rate;
+                lonelyVoidOfEmptyGalaxies += EXPANSION_RATE;
             }
         }
         return Math.abs(p2.x-p1.x) + Math.abs(p2.y-p1.y) + lonelyVoidOfEmptyGalaxies;
