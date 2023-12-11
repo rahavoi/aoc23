@@ -8,13 +8,8 @@ public class Day11 {
 
     static int expansion_rate = 1000000 - 1;
     public static void main(String[] args) throws Exception {
+        List<Point> galaxies = new ArrayList<>();
         List<String> lines = Files.readAllLines(Paths.get("/Users/irahavoi/IdeaProjects/aoc2023/resources/Day11.txt"));
-        for(int i = 0; i < lines.size(); i++){
-            String line = lines.get(i);
-            if(line.indexOf('#') == -1){
-                rowsWithoutGalaxies.add(i);
-            }
-        }
 
         for(int j = 0; j < lines.get(0).length(); j++){
             int count = 0;
@@ -30,26 +25,19 @@ public class Day11 {
             }
         }
 
-        List<List<Character>> map = new ArrayList<>();
-
         for(int i = 0; i < lines.size(); i++){
             List<Character> c = new ArrayList<>();
+            int countGalaxies = 0;
             for(int j = 0; j < lines.get(0).length(); j++){
-                c.add(lines.get(i).charAt(j));
-            }
-            map.add(c);
-        }
-
-
-        List<Point> galaxies = new ArrayList<>();
-        for(int i = 0; i < map.size(); i++){
-            for(int j = 0; j < map.get(0).size(); j++){
-                char c = map.get(i).get(j);
-                if(c == '#'){
+                if(lines.get(i).charAt(j) == '#'){
                     Point p = new Point(j, i);
                     galaxies.add(p);
-
+                    countGalaxies++;
                 }
+                c.add(lines.get(i).charAt(j));
+            }
+            if(countGalaxies == 0){
+                rowsWithoutGalaxies.add(i);
             }
         }
 
