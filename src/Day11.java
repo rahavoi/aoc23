@@ -60,19 +60,19 @@ public class Day11 {
         int yFrom = Math.min(p1.y, p2.y);
         int yTo = Math.max(p1.y, p2.y);
 
-        long lonely_void_of_empty_galaxies = 0;
+        long lonelyVoidOfEmptyGalaxies = 0;
         for(int i = xFrom; i < xTo; i++){
             if(columnsWithoutGalaxies.contains(i)){
-                lonely_void_of_empty_galaxies += expansion_rate;
+                lonelyVoidOfEmptyGalaxies += expansion_rate;
             }
         }
 
         for(int i = yFrom; i < yTo; i++){
             if(rowsWithoutGalaxies.contains(i)){
-                lonely_void_of_empty_galaxies += expansion_rate;
+                lonelyVoidOfEmptyGalaxies += expansion_rate;
             }
         }
-        return Math.abs(p2.x-p1.x) + Math.abs(p2.y-p1.y) + lonely_void_of_empty_galaxies;
+        return Math.abs(p2.x-p1.x) + Math.abs(p2.y-p1.y) + lonelyVoidOfEmptyGalaxies;
     }
 
     static class Point {
