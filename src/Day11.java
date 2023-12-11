@@ -66,29 +66,6 @@ public class Day11 {
         System.out.println(distances);
     }
 
-    static class Pair {
-        Point p1;
-        Point p2;
-
-        public Pair(Point p1, Point p2) {
-            this.p1 = p1;
-            this.p2 = p2;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Pair pair = (Pair) o;
-
-            return Objects.equals(p1, pair.p1) ;
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(p1, p2);
-        }
-    }
     private static long distance(Point p1 , Point p2) {
         int xFrom = Math.min(p1.x, p2.x);
         int xTo = Math.max(p1.x, p2.x);
