@@ -145,7 +145,6 @@ public class Day12 {
         }).toList();
 
         return matchingNums.size();
-
     }
 
     private static String buildContiguousStr(int n){
