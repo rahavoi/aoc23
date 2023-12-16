@@ -9,9 +9,7 @@ public class Day13 {
         List<String> lines = Files.readAllLines(Paths.get("/Users/irahavoi/IdeaProjects/aoc2023/resources/Day13.txt"));
 
         long result = 0;
-
         List<String> currentImg = new ArrayList<>();
-        int countLines = 0;
         outer:
         for(String l : lines){
             if(l.trim().isEmpty()){
