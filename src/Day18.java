@@ -18,10 +18,8 @@ public class Day18 {
         Point cur = new Point(0,0);
         points.add(cur);
 
-        int x = 0;
-        int y = 0;
-
         long perimeter = 0;
+
         for(String s : lines){
             String[] parts = s.split(" ");
             String input = parts[2].replace("(", "").replace(")", "");
@@ -51,17 +49,18 @@ public class Day18 {
 
             points.add(cur);
         }
+        //Googled Pick's theorem. It is beautiful:
+        System.out.println(pickTheoremArea(points, perimeter));
+    }
 
-
+    static long pickTheoremArea(List<Point> points, long perimeter ){
         long area = 0;
 
         for(int i = 0; i < points.size() - 1; ++i){
             area += ((long) points.get(i).x * points.get(i + 1).y) - ((long) points.get(i + 1).x * points.get(i).y);
         }
 
-
-        //Googled Pick's theorem 0_0
-        System.out.println(Math.abs(area / 2) + perimeter / 2 + 1);
+        return Math.abs(area / 2) + perimeter / 2 + 1;
     }
 
     private static void part1() throws IOException {
@@ -111,16 +110,7 @@ public class Day18 {
             p.y -= finalMinY;
         });
 
-        for(int i = minY; i < maxY + 1; i++){
-            int row = i;
-            List<Point> pointsInRow =  points.stream().filter(p -> p.y == row).toList();
-
-            System.out.println("In x = " + i + ": " + pointsInRow.size() + "points");
-        }
-
-        minX = points.stream().mapToInt(p -> p.x).min().getAsInt();
         maxX = points.stream().mapToInt(p -> p.x).max().getAsInt();
-        minY = points.stream().mapToInt(p -> p.y).min().getAsInt();
         maxY = points.stream().mapToInt(p -> p.y).max().getAsInt();
 
         char[][] map = new char[maxY + 1][maxX + 1];
@@ -179,15 +169,6 @@ public class Day18 {
                 .toList();
 
         return result;
-    }
-
-    private static void print(char[][] map){
-        for(int i = 0; i < map.length; i++){
-            for(int j = 0; j < map[0].length; j++){
-                System.out.print(map[i][j]);
-            }
-            System.out.println();
-        }
     }
 
     private static long countFilled(char[][] map){
