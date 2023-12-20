@@ -81,7 +81,7 @@ public class Day20 {
                 //For part 2 I noticed that the only to way reach the final module (rx)
                 //is via the Conjunction module (bb), which, turn receives inputs from
                 // modules xc,ct,kp,ks.
-                //Which means that bb will send low pulse to xp only when it receives high pulse from all inouts.
+                //Which means that bb will send low pulse to xp only when it receives high pulse from all inputs.
                 //Being lazy, I just increased the number of button pushes to 1million iterations
                 //And counted how often each input of bb is sending a high pulse (they are doing so in constant loops, yay):
 
