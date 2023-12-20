@@ -78,7 +78,7 @@ public class Day20 {
 
                 //ALRIGHT STOP!
                 //HAMMER TIME!
-                //For part 2 I noticed that the only way reach the final module (rx)
+                //For part 2 I noticed that the only to way reach the final module (rx)
                 //is via the Conjunction module (bb), which, turn receives inputs from
                 // modules xc,ct,kp,ks.
                 //Which means that bb will send low pulse to xp only when it receives high pulse from all inouts.
