@@ -78,13 +78,19 @@ public class Day20 {
 
                 //ALRIGHT STOP!
                 //HAMMER TIME!
-                //For part 2 i just increased the number of pushes to 1million iterations
-                //And counted how often each input of bb is sending a high pulse.
+                //For part 2 I noticed that the only way reach the final module (rx)
+                //is via the Conjunction module (bb), which, turn receives inputs from
+                // modules xc,ct,kp,ks.
+                //Which means that bb will send low pulse to xp only when it receives high pulse from all inouts.
+                //Being lazy, I just increased the number of button pushes to 1million iterations
+                //And counted how often each input of bb is sending a high pulse (they are doing so in constant loops, yay):
+
                 //xc loop is 3823
                 //ct loop is 3797
                 //kp loop is 3733
                 //ks loop is 3907
-                // After that we just need to find an lcm for these numbers.
+                // After that I just needed to find an lcm for these numbers, which, again, I was too lazy to code.
+                //Maybe later
                 if(mp.module!= null){
                     if(mp.inputName.equals("ks") && pulse){
                         System.out.println("Sends high pulse after " + (i + 1) + " pushes");
