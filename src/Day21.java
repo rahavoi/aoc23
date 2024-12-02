@@ -24,22 +24,20 @@ public class Day21 {
             }
         }
 
-
-
-
-        AtomicInteger maxScore = new AtomicInteger(1);
         visited = new HashSet<>();
         visited.add(start);
 
         Set<Possibility> exploredPossibilities = new HashSet<>();
-        Queue<Possibility> q = new LinkedList<>();
+        Stack<Possibility> stack = new Stack<>();
 
         //65 = 3752
+        //196 ??
+        //327 ??
 
-        q.add(new Possibility(start, 196, 1));
+        stack.add(new Possibility(start, 196, 1));
 
-        while(!q.isEmpty()){
-            Possibility possibility = q.poll();
+        while(!stack.isEmpty()){
+            Possibility possibility = stack.pop();
 
             visited.add(possibility.p);
 
@@ -56,10 +54,8 @@ public class Day21 {
                             return new Possibility(next, possibility.stepsLeft - 1, s);
                         })
                         .forEach(np -> {
-                            maxScore.set(Math.max(maxScore.get(), np.score));
-
                             if(np.stepsLeft > 0){
-                                q.add(np);
+                                stack.add(np);
                             } else {
                                 finalDestinations.add(np.p);
                             }
@@ -68,7 +64,7 @@ public class Day21 {
 
         }
 
-        print();
+        //print();
         System.out.println(finalDestinations.size());
     }
 
