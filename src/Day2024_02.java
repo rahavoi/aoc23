@@ -30,15 +30,11 @@ public class Day2024_02 {
     }
 
     private static boolean isAllIncreasing(List<Integer> nums){
-        List<Integer> copy = new ArrayList<>(nums);
-        Collections.sort(copy);
-        return nums.equals(copy);
+        return nums.stream().sorted().collect(Collectors.toList()).equals(nums);
     }
 
     private static boolean isAllDecreasing(List<Integer> nums){
-        List<Integer> copy = new ArrayList<>(nums);
-        Collections.sort(copy, Collections.reverseOrder());
-        return nums.equals(copy);
+        return nums.stream().sorted(Collections.reverseOrder()).collect(Collectors.toList()).equals(nums);
     }
 
     private static boolean isChangeWithinRange(List<Integer> nums){
