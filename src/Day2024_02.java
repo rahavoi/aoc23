@@ -13,7 +13,7 @@ public class Day2024_02 {
             if((isAllDecreasing(nums) || isAllIncreasing(nums)) && isChangeWithinRange(nums)){
                 return 1;
             }
-
+            //Part 2:
             for(int i = 0; i < nums.size(); i++){
                 List<Integer> copy = new ArrayList<>(nums);
                 copy.remove(i);
