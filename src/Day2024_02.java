@@ -7,16 +7,13 @@ public class Day2024_02 {
         List<String> lines = Files.readAllLines(Paths.get("resources/Day2024_2.txt"));
 
         long count = lines.stream().mapToInt(l -> {
-            String[] parts = l.split(" ");
             List<Integer> nums = new ArrayList<>();
 
-            for(String p : parts){
+            for(String p : l.split(" ")){
                 nums.add(Integer.parseInt(p));
             }
 
-            boolean valid = (isAllDecreasing(nums) || isAllIncreasing(nums)) && isChangeWithinRange(nums);
-
-            if(valid){
+            if((isAllDecreasing(nums) || isAllIncreasing(nums)) && isChangeWithinRange(nums)){
                 return 1;
             }
 
@@ -24,9 +21,7 @@ public class Day2024_02 {
                 List<Integer> copy = new ArrayList<>(nums);
                 copy.remove(i);
 
-                valid = (isAllDecreasing(copy) || isAllIncreasing(copy)) && isChangeWithinRange(copy);
-
-                if(valid){
+                if((isAllDecreasing(copy) || isAllIncreasing(copy)) && isChangeWithinRange(copy)){
                     return 1;
                 }
             }
