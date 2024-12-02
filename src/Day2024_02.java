@@ -24,19 +24,15 @@ public class Day2024_02 {
                 continue;
             }
 
-            int idxToRemove = 0;
-
             for(int i = 0; i < nums.size(); i++){
                 List<Integer> copy = new ArrayList<>(nums);
-                copy.remove(idxToRemove);
+                copy.remove(i);
 
                 valid = (isAllDecreasing(copy) || isAllIncreasing(copy)) && isChangeWithinRange(copy);
 
                 if(valid){
                     count++;
                     continue levels;
-                } else {
-                    idxToRemove++;
                 }
             }
         }
