@@ -1,10 +1,11 @@
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class Day2024_02 {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         List<String> lines = Files.readAllLines(Paths.get("resources/Day2024_2.txt"));
 
         long count = lines.stream().mapToInt(l -> {
