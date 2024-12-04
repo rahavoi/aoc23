@@ -9,8 +9,6 @@ public class Day2024_04 {
         List<String> lines = Files.readAllLines(Paths.get("resources/Day2024_4.txt"));
         long p1 = 0;
         long p2 = 0;
-
-
         char[][] map = new char[lines.size()][lines.get(0).length()];
 
         for(int i = 0; i < lines.size(); i++){
@@ -51,7 +49,7 @@ public class Day2024_04 {
                 return 1;
             }
         } catch (ArrayIndexOutOfBoundsException e){
-            return 0;
+            // ¯\_(ツ)_/¯
         }
 
         return 0;
@@ -71,7 +69,7 @@ public class Day2024_04 {
                 }
             }
         } catch (ArrayIndexOutOfBoundsException e){
-            return 0;
+            // ¯\_(ツ)_/¯
         }
 
         return 0;
