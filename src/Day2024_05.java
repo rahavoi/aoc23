@@ -12,7 +12,6 @@ public class Day2024_05 {
 
         Set<Integer> allNumbers = new HashSet<>();
 
-        long result = 0;
         for(String l : lines) {
             String[] parts = l.split("\\|");
 
