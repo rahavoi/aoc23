@@ -7,7 +7,6 @@ public class Day2024_05 {
     public static void main(String[] args) throws Exception {
         List<String> lines = Files.readAllLines(Paths.get("resources/Day2024_5a.txt"));
 
-        Map<Integer, List<Integer>> pagesAfter = new HashMap<>();
         Map<Integer, List<Integer>> pagesBefore = new HashMap<>();
 
         Set<Integer> allNumbers = new HashSet<>();
@@ -18,10 +17,6 @@ public class Day2024_05 {
             Integer first = Integer.parseInt(parts[0]);
             Integer second = Integer.parseInt(parts[1]);
 
-            List<Integer> allAfter = pagesAfter.getOrDefault(first, new ArrayList<>());
-            allAfter.add(second);
-            pagesAfter.put(first, allAfter);
-
             List<Integer> allBefore = pagesBefore.getOrDefault(second, new ArrayList<>());
             allBefore.add(first);
             pagesBefore.put(second, allBefore);
@@ -31,7 +26,6 @@ public class Day2024_05 {
         }
 
         List<String> input2 = Files.readAllLines(Paths.get("resources/Day2024_5b.txt"));
-
         List<List<Integer>> updates = new ArrayList<>();
 
         for(String l : input2) {
@@ -85,7 +79,6 @@ public class Day2024_05 {
 
         System.out.println(sum);
         System.out.println(sumP2);
-
     }
 }
 
