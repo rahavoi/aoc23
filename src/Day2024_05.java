@@ -81,4 +81,3 @@ public class Day2024_05 {
         System.out.println(sumP2);
     }
 }
-
