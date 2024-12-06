@@ -62,7 +62,6 @@ public class Day2024_05 {
 
         int sumP2 = 0;
 
-        outerIncorrect:
         for(List<Integer> badUpdate : incorrect) {
             int origSize = badUpdate.size();
             List<Integer> corrected = new ArrayList<>();
