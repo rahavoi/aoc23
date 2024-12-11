@@ -38,7 +38,7 @@ public class Day2024_11 {
     private static BlinkResult blink(Long v){
         String sv = v.toString();
         if(v == 0){
-            return new BlinkResult(1L, null);
+            return new BlinkResult(1L, Optional.empty());
         } else if(sv.length() % 2 == 0){
             int mid = sv.length() / 2;
             Long l1 = Long.parseLong(sv.substring(0, mid));
