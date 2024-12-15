@@ -1,7 +1,3 @@
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -12,10 +8,7 @@ public class Day2024_14 {
     static int width = 101;
     static int height = 103;
     public static void main(String[] args) throws Exception {
-        List<Robot> robots = new ArrayList<>();
-        List<String> lines = Files.readAllLines(Paths.get("resources/Day2024_14.txt"));
-
-        for(String l : lines){
+        List<Robot> robots = Files.readAllLines(Paths.get("resources/Day2024_14.txt")).stream().map(l -> {
             String[] p = l.split(" ");
             String[] p1 = p[0].replaceAll("p=", "").split(",");
             String[] p2 = p[1].replaceAll("v=", "").split(",");
@@ -24,8 +17,8 @@ public class Day2024_14 {
             int vx = Integer.parseInt(p2[0]);
             int vy = Integer.parseInt(p2[1]);
 
-            robots.add(new Robot(x, y, vx, vy));
-        }
+            return new Robot(x, y, vx, vy);
+        }).collect(Collectors.toList());
 
         for(int i = 0; i < 100000000; i++){
             robots.forEach(Day2024_14::move);
