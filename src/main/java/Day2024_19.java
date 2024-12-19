@@ -26,11 +26,10 @@ public class Day2024_19 {
             Long result = 0L;
             if(towel.equals(p)){
                 result++;
-            }
-
-            if(towel.startsWith(p)){
+            } else if(towel.startsWith(p)){
                 result+= countPossible(towel.substring(p.length()), patterns);
             }
+
             return result;
         }).sum();
 
